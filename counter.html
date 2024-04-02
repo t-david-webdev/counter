@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            background: #e9e9e9;
+        }
+
+        main {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .cont {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            padding: 3%;
+            margin: 15%;
+            font-family: sans-serif;
+        }
+
+        #result {
+            font-size: 8rem;
+            font-family: serif;
+        }
+
+        #reset {
+            background: rgb(216, 79, 45);
+        }
+
+        .btn-cont button {
+            background: rgb(8, 118, 182);
+            color: white;
+            border: none;
+            opacity: 1;
+            padding: 8px 20px;
+        }
+
+        .btn-cont button:hover {
+            opacity: .7;
+            cursor: pointer;
+        }
+
+    </style>
+
+    <title>Coounter</title>
+</head>
+<body>
+
+    
+
+    <main>
+
+        <div class="cont">
+            <h1>Counter</h1>
+            <i>Count me baby one more time :)</i>
+
+            <span id="result"></span>
+
+            <div class="btn-cont">
+                <button id="decrese">Decrese (-)</button>
+                <button id="reset">Reset (0)</button>
+                <button id="increse">Increse (+)</button>
+            </div>
+
+        </div>
+
+    </main>
+    
+
+    <!-- The allmighty script -->
+    <script>
+
+        // Containers
+        const displayNmbr = document.getElementById('result');
+
+        const decNmbr = document.getElementById('decrese');
+        const resetNmbr = document.getElementById('reset');
+        const incNmbr = document.getElementById('increse');
+
+        let zeroStart = 0;
+
+        // put number 0 into the "result" div
+        displayNmbr.innerText = zeroStart;
+
+        // clicking on 'derese' button, will decrese the value of zeroStart
+        decNmbr.onclick = () => {
+            displayNmbr.innerText = --zeroStart;
+        }
+
+        // clicking on 'reset' button, will reset the value of zeroStart to number 0
+        resetNmbr.onclick = () => {
+
+            zeroStart = 0; // "Hard" Reset zeroStart to 0
+
+            /*
+            NOTICE!
+            If you don`t redeclare the zeroStart variable, then, when clicking again on the increse or decrese button, it will continue the numbering where it left off.
+            In order to fix this anomally, we must redeclare the variable called zeroStart to 0
+            */
+            
+            displayNmbr.innerText = zeroStart;
+        }
+        
+        // clicking on 'increse' button, will increse the value of zeroStart
+            incNmbr.onclick = () => {
+            displayNmbr.innerText = ++zeroStart;
+        }
+
+    </script>
+</body>
+</html>
